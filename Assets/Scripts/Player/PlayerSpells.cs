@@ -5,18 +5,19 @@ using UnityEngine;
 public class PlayerSpells : MonoBehaviour
 {
     public GameObject projectile;
-    public float launchVelocity = 700f;
+    public GameObject self;
 
-    public void Shoot(GameObject prefab) {
-        GameObject shoot = Instantiate(prefab, transform.position, Quaternion.identity);
-        Vector3 shootDir = transform.position;
+    public void Shoot(GameObject prefab, Transform direction) {
+        Instantiate(prefab, transform.position, Quaternion.identity);
+        Vector3 dir = direction.forward;
+        prefab.GetComponent<Projectile>().shooter = dir;
     }
 
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Shoot(projectile);
+            Shoot(projectile, self.transform);
         }
     }
 }
