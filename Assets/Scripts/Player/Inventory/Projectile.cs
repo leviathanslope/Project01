@@ -11,9 +11,13 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] protected Rigidbody RB;
     [SerializeField] public Vector3 shooter;
 
+    [SerializeField] ParticleSystem _collideParticles;
+    [SerializeField] AudioClip _collideSound;
+
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Projectile collision!");
+        Feedback();
         Impact(collision);
     }
 
@@ -26,5 +30,18 @@ public abstract class Projectile : MonoBehaviour
     {
         Vector3 moveOffset = shooter * TravelSpeed;
         RB.MovePosition(RB.position + moveOffset);
+    }
+
+    private void Feedback()
+    {
+        if (_collideParticles != null)
+        {
+            _collideParticles = Instantiate(_collideParticles, transform.position, Quaternion.identity);
+        }
+
+        if (_collideSound != null)
+        {
+            AudioHelper.PlayClip2D(_collideSound, 1f);
+        }
     }
 }
