@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] int _health;
-    int _currentHealth;
+    [SerializeField] int _currentHealth;
 
     private void Awake()
     {

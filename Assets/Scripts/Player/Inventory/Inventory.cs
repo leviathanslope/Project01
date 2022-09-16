@@ -6,8 +6,9 @@ using TMPro;
 public class Inventory : MonoBehaviour
 {
     int _iceAmmo;
-    public int[] ammoTypes = { 0, 1 };
+    public GameObject[] ammoTypes;
     int _currentAmmoType;
+    GameObject shooter;
 
     [SerializeField] TMP_Text ammoUpdate;
 
@@ -24,7 +25,12 @@ public class Inventory : MonoBehaviour
         {
             if (_currentAmmoType == 0)
             {
-
+                _currentAmmoType = 1;
+                ammoUpdate.text = "Ice Spells: " + _iceAmmo;
+                shooter.GetComponent<PlayerSpells>().projectile = ammoTypes[1];
+            } else
+            {
+                _currentAmmoType = 0;
             }
         }
     }
