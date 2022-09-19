@@ -5,10 +5,10 @@ using TMPro;
 
 public class Inventory : MonoBehaviour
 {
-    int _iceAmmo;
+    public int _iceAmmo;
     public GameObject[] ammoTypes;
-    int _currentAmmoType;
-    GameObject shooter;
+    public int _currentAmmoType;
+    [SerializeField] GameObject shooter;
 
     [SerializeField] TMP_Text ammoUpdate;
 
@@ -27,11 +27,17 @@ public class Inventory : MonoBehaviour
             {
                 _currentAmmoType = 1;
                 ammoUpdate.text = "Ice Spells: " + _iceAmmo;
-                shooter.GetComponent<PlayerSpells>().projectile = ammoTypes[1];
+                shooter.GetComponent<PlayerSpells>().projectile = ammoTypes[_currentAmmoType];
             } else
             {
                 _currentAmmoType = 0;
+                ammoUpdate.text = "Regular Spells: Infinite";
+                shooter.GetComponent<PlayerSpells>().projectile = ammoTypes[_currentAmmoType];
             }
+        }
+        if (_currentAmmoType == 1)
+        {
+            ammoUpdate.text = "Ice Spells: " + _iceAmmo;
         }
     }
 }

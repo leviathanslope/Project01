@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSpells : MonoBehaviour
 {
     public GameObject projectile;
     public GameObject self;
+    public GameObject inventory;
 
     [SerializeField] ParticleSystem _shootParticles;
     [SerializeField] AudioClip _shootSound;
@@ -20,6 +22,16 @@ public class PlayerSpells : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            if (inventory.GetComponent<Inventory>()._currentAmmoType == 1)
+            {
+                if (inventory.GetComponent<Inventory>()._iceAmmo <= 0)
+                {
+                    return;
+                } else
+                {
+                    inventory.GetComponent<Inventory>()._iceAmmo -= 1;
+                }
+            }
             Shoot(projectile, self.transform);
             Feedback();
         }
