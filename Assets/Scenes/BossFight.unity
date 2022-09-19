@@ -1494,6 +1494,9 @@ MonoBehaviour:
   _health: 100
   _currentHealth: 0
   art: {fileID: 0}
+  _damageSound: {fileID: 0}
+  _killParticles: {fileID: 0}
+  _killSound: {fileID: 0}
 --- !u!1 &1627870685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,6 +1591,18 @@ PrefabInstance:
       propertyPath: art
       value: 
       objectReference: {fileID: 594560159}
+    - target: {fileID: 3794994031512613719, guid: 3837ad658c1b1564f96bc9aede89a101, type: 3}
+      propertyPath: _killSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 59f106f73cf58a649b5cf40c6828c687, type: 3}
+    - target: {fileID: 3794994031512613719, guid: 3837ad658c1b1564f96bc9aede89a101, type: 3}
+      propertyPath: _damageSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 57371e6e51defd24aa404ff0455e6ba8, type: 3}
+    - target: {fileID: 3794994031512613719, guid: 3837ad658c1b1564f96bc9aede89a101, type: 3}
+      propertyPath: _killParticles
+      value: 
+      objectReference: {fileID: 1467532820318284337, guid: 32b59e6ce85585d43ab6241b985b2083, type: 3}
     - target: {fileID: 7233450951814331608, guid: 3837ad658c1b1564f96bc9aede89a101, type: 3}
       propertyPath: m_RootOrder
       value: 5
