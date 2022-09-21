@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] int _health;
-    [SerializeField] int _currentHealth;
+    [SerializeField] public int _currentHealth;
     [SerializeField] GameObject art;
     [SerializeField] AudioClip _damageSound;
     [SerializeField] ParticleSystem _killParticles;
