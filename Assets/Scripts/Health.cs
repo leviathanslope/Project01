@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
 
 public class Health : MonoBehaviour, IDamageable
 {
@@ -11,12 +13,15 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField] ParticleSystem _killParticles;
     [SerializeField] AudioClip _killSound;
 
+    public event Action<int> UIUpdated;
+
     private void Awake()
     {
         _currentHealth = _health;
     }
     public void TakeDamage(int damage)
     {
+        UIUpdated?.Invoke(damage);
         DamageFeedback();
         _currentHealth -= damage;
         if (_currentHealth <= 0)
