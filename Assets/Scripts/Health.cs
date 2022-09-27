@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour, IDamageable
 {
@@ -12,6 +13,7 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField] AudioClip _damageSound;
     [SerializeField] ParticleSystem _killParticles;
     [SerializeField] AudioClip _killSound;
+    [SerializeField] PlayerHealthUI _slider;
 
     public event Action<int> UIUpdated;
 
@@ -19,6 +21,12 @@ public class Health : MonoBehaviour, IDamageable
     {
         _currentHealth = _health;
     }
+
+    private void Start()
+    {
+        _slider.SetMaxHealth(_health);
+    }
+
     public void TakeDamage(int damage)
     {
         UIUpdated?.Invoke(damage);
