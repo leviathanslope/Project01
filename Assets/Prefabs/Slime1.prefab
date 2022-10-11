@@ -130,5 +130,5 @@ MonoBehaviour:
   TravelSpeed: 0.05
   RB: {fileID: 7359046067840826402}
   shooter: {x: 0.9737302, y: 0.21957114, z: 0.06031695}
-  _collideParticles: {fileID: 0}
-  _collideSound: {fileID: 0}
+  _collideParticles: {fileID: 1467532820318284337, guid: 84e8d6e1090444f4f948dd25540b0ee8, type: 3}
+  _collideSound: {fileID: 8300000, guid: 651eaca1eddb60d45bafb1ee254d3440, type: 3}

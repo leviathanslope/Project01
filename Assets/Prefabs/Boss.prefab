@@ -292,7 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1497903909095795090, guid: 24f0da247e8fed841ad36bc0ce0573e4, type: 3}
   self: {fileID: 20119305}
-  _shootParticles: {fileID: 0}
-  _shootSound: {fileID: 0}
+  _shootParticles: {fileID: 1467532820318284337, guid: d81f6b27635f5ed4ba6c9faa16ccb713, type: 3}
+  _shootSound: {fileID: 8300000, guid: 3c235c8ac53dd2c42bcfd3a1862cbd8c, type: 3}
   player: {fileID: 0}
-  boss: {fileID: 0}
+  boss: {fileID: 7233450951814331609}

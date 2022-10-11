@@ -29,9 +29,9 @@ public class Health : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        UIUpdated?.Invoke(damage);
         DamageFeedback();
         _currentHealth -= damage;
+        UIUpdated?.Invoke(_currentHealth);
         if (_currentHealth <= 0)
         {
             Kill();

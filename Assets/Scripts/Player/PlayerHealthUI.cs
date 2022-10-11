@@ -39,9 +39,9 @@ public class PlayerHealthUI : MonoBehaviour
         _player.GetComponent<Health>().UIUpdated -= OnTookDamage;
     }
 
-    void OnTookDamage(int damage)
+    void OnTookDamage(int healthValue)
     {
-        _slider.value -= damage;
+        _slider.value = healthValue;
         RedScreen();
         if (cameraShaker != null)
         {

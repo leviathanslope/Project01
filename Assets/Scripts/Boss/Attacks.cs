@@ -11,6 +11,7 @@ public class Attacks : MonoBehaviour
     public GameObject player;
     public GameObject boss;
     GameObject[] gameObjects;
+    public bool activateDuplicate = false;
 
     private void Update()
     {
@@ -22,14 +23,19 @@ public class Attacks : MonoBehaviour
                 bosses.GetComponent<Health>().Kill();
             }
         }
-        if (this.gameObject.GetComponent<Health>()._currentHealth == 500)
+        if (activateDuplicate == false)
         {
-            GameObject newBoss = Instantiate(boss, this.gameObject.transform);
-            newBoss.GetComponent<Health>()._currentHealth = 500;
+            if (this.gameObject.GetComponent<Health>()._currentHealth == 500)
+            {
+                Separate();
+            }
         }
     }
     public void Separate()
     {
+        GameObject newBoss = Instantiate(boss, this.gameObject.transform);
+        newBoss.GetComponent<Health>()._currentHealth = 499;
+        activateDuplicate = true;
     }
     public void Shooting()
     {
