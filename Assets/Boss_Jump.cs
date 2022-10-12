@@ -17,7 +17,7 @@ public class Boss_Jump : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Vector3 target = new Vector3(player.position.x, 20, player.position.z);
+        Vector3 target = new Vector3(player.position.x, player.position.y, player.position.z);
         Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.AddForce(Physics.gravity * 4 * rb.mass);
         rb.MovePosition(newPos);

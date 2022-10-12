@@ -24,14 +24,14 @@ public class Boss_Patrol : StateMachineBehaviour
         Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
 
-        if (Time.fixedDeltaTime / 13 == 0)
-        {
-            animator.SetTrigger("shoot");
-        }
-
         if (Vector3.Distance(player.position, rb.position) <= attackRange)
         {
             animator.SetTrigger("jump");
+        }
+
+        if (Time.fixedDeltaTime / 13 == 0)
+        {
+            animator.SetTrigger("shoot");
         }
     }
 

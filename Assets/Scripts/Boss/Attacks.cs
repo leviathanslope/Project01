@@ -25,7 +25,7 @@ public class Attacks : MonoBehaviour
         }
         if (activateDuplicate == false)
         {
-            if (this.gameObject.GetComponent<Health>()._currentHealth == 500)
+            if (this.gameObject.GetComponent<Health>()._currentHealth <= 500)
             {
                 Separate();
             }
@@ -35,13 +35,13 @@ public class Attacks : MonoBehaviour
     {
         GameObject newBoss = Instantiate(boss, this.gameObject.transform);
         newBoss.GetComponent<Health>()._currentHealth = 499;
+        newBoss.GetComponent<Attacks>().activateDuplicate = true;
         activateDuplicate = true;
     }
     public void Shooting()
     {
         Instantiate(projectile, self.transform.position, Quaternion.identity);
-        Vector3 dir = self.transform.forward;
-        Vector3 target = (self.transform.position - player.transform.position).normalized;
+        Vector3 target = Random.insideUnitCircle.normalized;
         projectile.GetComponent<Projectile>().shooter = target;
         Feedback();
     }
